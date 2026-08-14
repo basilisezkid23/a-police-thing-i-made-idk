@@ -2,10 +2,8 @@ import os
 import tkinter as tk
 import pygame
 
-
 pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.mixer.init()
-
 
 class SirenController:
     def __init__(self, root):
@@ -19,9 +17,11 @@ class SirenController:
         self.yelp_channel = pygame.mixer.Channel(1)
 
         self.sounds = {}
-        self.load_sound("BRBR", ["BRBR.wav", "BRBR.mp3"])
-        self.load_sound("SIREN2", ["SIREN2.wav", "SIREN2.mp3"])
-        self.load_sound("SIREN3", ["SIREN3.wav", "SIREN3.mp3"])
+        # ShadowDev7 commit: Removed .mp3 files, you don't have them
+        # Addition: Organized using assets/ folder
+        self.load_sound("BRBR", ["assets/BRBR.wav"])
+        self.load_sound("SIREN2", ["assets/SIREN2.wav"])
+        self.load_sound("SIREN3", ["assets/SIREN3.wav"])
 
         self.yelp_active = False
         self.man_active = False
